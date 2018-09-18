@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="font_white">#FFFFFF</color>
+    <color name="font_grey">#BBBABA</color>
+    <color name="bt_color">#78909C</color>
+    <color name="title_color">#78909C</color>
+    <color name="middle_color">#FAFAFA</color>
+    <color name="bottom_color">#F5F5F5</color>
+    <!--
+    开机显示页面：字体颜色font_white#FFFFFF 大小14px
+		灰色字体颜色：font_grey:#BBBABA
+
+		注册按钮：bt_color：#78909C
+		首页顶部颜色：title_color:#78909C
+		首页中部颜色:middle_color:#FAFAFA
+		首页底部栏颜色：bottom_color:#F5F5F5
+
+    -->
+</resources>
