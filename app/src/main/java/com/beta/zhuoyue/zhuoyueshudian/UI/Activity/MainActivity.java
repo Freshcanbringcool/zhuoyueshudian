@@ -1,6 +1,12 @@
 package com.beta.zhuoyue.zhuoyueshudian.UI.Activity;
 
+import android.app.Activity;
 import android.app.Application;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.Window;
+
+import com.beta.zhuoyue.zhuoyueshudian.R;
 
 import org.xutils.x;
 
@@ -8,12 +14,13 @@ import org.xutils.x;
  * Created by Kevein on 2018/9/18.16:58
  */
 
-public class MainActivity extends Application {
+public class MainActivity extends Activity{
+
+
 	@Override
-	public void onCreate() {
-		super.onCreate();
-		x.Ext.init(this);
-		x.Ext.setDebug(false); //输出debug日志，开启会影响性能
+	protected void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
 	}
 }
