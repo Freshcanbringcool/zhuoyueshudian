@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
        >
         <ImageView
+            android:id="@+id/exit_useraggreement"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:background="@drawable/ic_exit"
