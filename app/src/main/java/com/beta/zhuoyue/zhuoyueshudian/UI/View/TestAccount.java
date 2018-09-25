@@ -11,8 +11,7 @@ public class TestAccount {
 	/**
 	 * 描述：判断一个字符串是否为null或空值.
 	 *
-	 * @param str
-	 *            指定的字符串
+	 * @param str 指定的字符串
 	 * @return true or false
 	 */
 	public static boolean isEmpty(String str) {
@@ -22,8 +21,7 @@ public class TestAccount {
 	/**
 	 * 描述：是否只是字母和数字.
 	 *
-	 * @param str
-	 *            指定的字符串
+	 * @param str 指定的字符串
 	 * @return 是否只是字母和数字:是为true，否则false
 	 */
 	public static Boolean isNumberLetter(String str) {
@@ -38,8 +36,7 @@ public class TestAccount {
 	/**
 	 * 描述：获取字符串的长度.
 	 *
-	 * @param str
-	 *            指定的字符串
+	 * @param str 指定的字符串
 	 * @return 字符串的长度（中文字符计2个）
 	 */
 	public static int strLength(String str) {
@@ -66,8 +63,7 @@ public class TestAccount {
 	/**
 	 * 描述：手机号格式验证.
 	 *
-	 * @param str
-	 *            指定的手机号码字符串
+	 * @param str 指定的手机号码字符串
 	 * @return 是否为手机号码格式:是为true，否则false
 	 */
 	public static Boolean isMobileNo(String str) {
@@ -86,8 +82,7 @@ public class TestAccount {
 	/**
 	 * 描述：是否包含中文.
 	 *
-	 * @param str
-	 *            指定的字符串
+	 * @param str 指定的字符串
 	 * @return 是否包含中文:是为true，否则false
 	 */
 	public static Boolean isContainChinese(String str) {

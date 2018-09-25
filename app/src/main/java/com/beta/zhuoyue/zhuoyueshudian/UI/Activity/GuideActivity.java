@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.view.View;
 import android.view.Window;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -23,6 +20,20 @@ public class GuideActivity extends Activity {
 	private TextView textView;
 	private int count = 3;
 	private Animation animation;
+	private Handler handler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			if (msg.what == 0) {
+				textView.setText(getCount() + "");
+				handler.sendEmptyMessageDelayed(0, 1000);
+				animation.reset();
+				textView.startAnimation(animation);
+			}
+
+		}
+
+		;
+
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +58,5 @@ public class GuideActivity extends Activity {
 		}
 		return count;
 	}
-
-	private Handler handler = new Handler() {
-		public void handleMessage(android.os.Message msg) {
-			if (msg.what == 0) {
-				textView.setText(getCount()+"");
-				handler.sendEmptyMessageDelayed(0, 1000);
-				animation.reset();
-				textView.startAnimation(animation);
-			}
-
-		};
-
-	};
 
 }

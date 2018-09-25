@@ -16,8 +16,8 @@ import com.beta.zhuoyue.zhuoyueshudian.R;
  */
 
 public class GuideOpenActivity extends Activity {
-	private ImageView en_tx,en_weibo,en_winxin,en_phone;
-	private TextView jc_register,jc_login;
+	private ImageView en_tx, en_weibo, en_winxin, en_phone;
+	private TextView jc_register, jc_login;
 	private Button jc_random;
 
 
@@ -28,36 +28,36 @@ public class GuideOpenActivity extends Activity {
 		initview();
 		initaction();
 	}
-	private void initview()
-	{
-		en_tx = (ImageView)findViewById(R.id.en_tx);
-		en_weibo=(ImageView)findViewById(R.id.en_weibo);
-		en_phone = (ImageView)findViewById(R.id.en_phone);
+
+	private void initview() {
+		en_tx = (ImageView) findViewById(R.id.en_tx);
+		en_weibo = (ImageView) findViewById(R.id.en_weibo);
+		en_phone = (ImageView) findViewById(R.id.en_phone);
 		jc_register = (TextView) findViewById(R.id.jc_register);
-		jc_login =(TextView) findViewById(R.id.jc_login);
+		jc_login = (TextView) findViewById(R.id.jc_login);
 
 
 	}
-	private void initaction()
-	{
+
+	private void initaction() {
 		jc_register.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent_re = new Intent(GuideOpenActivity.this,RegistereActivity.class);
+				Intent intent_re = new Intent(GuideOpenActivity.this, RegistereActivity.class);
 				startActivity(intent_re);
 			}
 		});
 		jc_login.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent_lg = new Intent(GuideOpenActivity.this,LoginActivity.class);
+				Intent intent_lg = new Intent(GuideOpenActivity.this, LoginActivity.class);
 				startActivity(intent_lg);
 			}
 		});
 		en_phone.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent_ph = new Intent(GuideOpenActivity.this,LoginActivity.class);
+				Intent intent_ph = new Intent(GuideOpenActivity.this, LoginActivity.class);
 				startActivity(intent_ph);
 			}
 		});
