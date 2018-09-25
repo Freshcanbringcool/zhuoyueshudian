@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomArea"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/bottom_color" >
+    </FrameLayout>
+    <RelativeLayout
+        android:id="@+id/bottomArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+
+        >
+
+        <!-- tab的分割线 -->
+        <ImageView
+            android:id="@+id/tabTop"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#B6B6B6" />
+
+
+        <!-- tab的四个按钮 -->
+        <LinearLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tabTop"
+            android:layout_marginTop="1dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <!-- 首页按钮 -->
+            <!-- 使用FrameLayout -->
+            <FrameLayout
+                android:id="@+id/firstpage_f_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:paddingTop="3dp"
+                android:paddingBottom="2dp">
+
+                <ImageView
+                    android:id="@+id/firstpage_im"
+                    android:layout_width="48px"
+                    android:layout_height="48px"
+                    android:layout_gravity="top|center"
+                    android:src="@drawable/ic_first_page1"
+                    />
+
+                <TextView
+                    android:id="@+id/firstpageTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/firstpagef"
+                    android:textColor="@color/darkcyan"
+                    android:layout_gravity="bottom|center"
+                    android:textSize="14dp" />
+            </FrameLayout>
+
+            <!-- 书架按钮 -->
+            <FrameLayout
+                android:id="@+id/bookcase_f_tLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:paddingTop="3dp"
+                android:paddingBottom="2dp">
+
+                <TextView
+                    android:id="@+id/bookcaseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bookcasef"
+                    android:textColor="@color/font_black"
+                    android:layout_gravity="bottom|center"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:id="@+id/bookcaseImageView"
+                    android:layout_width="48px"
+                    android:layout_height="48px"
+                    android:layout_gravity="top|center"
+                    android:src="@drawable/ic_bookcase" />
+            </FrameLayout>
+
+            <!-- 分类按钮 -->
+            <FrameLayout
+                android:id="@+id/clasactionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:paddingTop="3dp"
+                android:paddingBottom="2dp">
+
+                <ImageView
+                    android:id="@+id/clasactionImageView"
+                    android:layout_width="48px"
+                    android:layout_height="48px"
+                    android:layout_gravity="top|center"
+                    android:src="@drawable/ic_clasaction" />
+
+                <TextView
+                    android:id="@+id/clasactionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/classctionf"
+                    android:textColor="@color/font_black"
+                    android:layout_gravity="bottom|center"
+                    android:textSize="14dp"  />
+            </FrameLayout>
+
+            <!-- 我的按钮 -->
+            <FrameLayout
+                android:id="@+id/myselfLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:paddingTop="3dp"
+                android:paddingBottom="2dp">
+                <ImageView
+                    android:id="@+id/myselfImageView"
+                    android:layout_width="48px"
+                    android:layout_height="48px"
+                    android:layout_gravity="top|center"
+                    android:src="@drawable/ic_myself" />
+
+                <TextView
+                    android:id="@+id/myselfTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/myselff"
+                    android:textColor="@color/font_black"
+                    android:layout_gravity="bottom|center"
+                    android:textSize="14dp" />
+            </FrameLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

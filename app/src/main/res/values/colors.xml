@@ -10,6 +10,7 @@
     <color name="middle_color">#FAFAFA</color>
     <color name="bottom_color">#F5F5F5</color>
     <color name="font_black">#101010</color>
+    <color name="fragment_color">#F5F5F5</color>
     <!--
     开机显示页面：字体颜色font_white#FFFFFF 大小14px
 		灰色字体颜色：font_grey:#BBBABA

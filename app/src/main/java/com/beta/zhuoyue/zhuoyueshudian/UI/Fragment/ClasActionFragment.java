@@ -1,0 +1,10 @@
+package com.beta.zhuoyue.zhuoyueshudian.UI.Fragment;
+
+import android.app.Fragment;
+
+/**
+ * Created by Kevein on 2018/9/25.21:21
+ */
+
+public class ClasActionFragment  extends Fragment{
+}

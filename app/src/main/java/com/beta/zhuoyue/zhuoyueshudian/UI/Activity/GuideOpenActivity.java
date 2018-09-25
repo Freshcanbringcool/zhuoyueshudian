@@ -16,9 +16,12 @@ import com.beta.zhuoyue.zhuoyueshudian.R;
  */
 
 public class GuideOpenActivity extends Activity {
-	private ImageView en_tx, en_weibo, en_winxin, en_phone;
+	private ImageView entx, enweibo, enwinxin, en_phone;
 	private TextView jc_register, jc_login;
 	private Button jc_random;
+
+	public GuideOpenActivity() {
+	}
 
 
 	@Override
@@ -30,8 +33,8 @@ public class GuideOpenActivity extends Activity {
 	}
 
 	private void initview() {
-		en_tx = (ImageView) findViewById(R.id.en_tx);
-		en_weibo = (ImageView) findViewById(R.id.en_weibo);
+		entx = (ImageView) findViewById(R.id.en_tx);
+		enweibo = (ImageView) findViewById(R.id.en_weibo);
 		en_phone = (ImageView) findViewById(R.id.en_phone);
 		jc_register = (TextView) findViewById(R.id.jc_register);
 		jc_login = (TextView) findViewById(R.id.jc_login);
