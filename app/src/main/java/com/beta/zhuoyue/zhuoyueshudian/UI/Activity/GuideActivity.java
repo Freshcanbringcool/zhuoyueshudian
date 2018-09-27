@@ -52,9 +52,9 @@ public class GuideActivity extends Activity {
 	private int getCount() {
 		count--;
 		if (count == 0) {
-			Intent intent = new Intent(this, MainActivity.class);
-			startActivity(intent);
-			finish();
+			Intent intent_gui = new Intent(GuideActivity.this, GuideOpenActivity.class);
+			startActivity(intent_gui);
+
 		}
 		return count;
 	}

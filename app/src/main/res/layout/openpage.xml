@@ -1,129 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_register"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_gravity="center"
         android:layout_marginTop="150dp"
         android:gravity="center|bottom"
-        android:layout_gravity="center"
+        android:orientation="vertical"
 
         >
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/ic_logox"
+            android:src="@drawable/ic_logox"
 
             />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14dp"
-        android:text="注册或登录后继续"
-        android:textColor="@color/font_white"
-        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/re_t1"
+            android:textColor="@color/font_white"
+            android:textSize="14sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center">
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:background="@color/middle_color"
-            android:layout_gravity="left|center"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="4"
-            ></View>
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:text="快速登录"
-            android:textSize="18dp"
+            android:text="@string/re_t2"
+            android:textSize="18sp"
             android:textColor="@color/font_white"
             />
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:background="@color/middle_color"
-            android:layout_gravity="left|center"
-            android:layout_marginRight="20dp"
-            android:layout_weight="4"
-        ></View>
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:gravity="center">
+
         <ImageView
             android:id="@+id/en_tx"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/ic_tencent"
+            android:src="@drawable/ic_tencent"
 
-        />
+            />
+
         <ImageView
             android:id="@+id/en_weibo"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/ic_weibo"
+            android:src="@drawable/ic_weibo"
 
             />
+
         <ImageView
             android:id="@+id/en_weixin"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/ic_weixin"
+            android:src="@drawable/ic_weixin"
 
             />
+
         <ImageView
             android:id="@+id/en_phone"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/ic_phone"
+            android:src="@drawable/ic_phone"
 
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:layout_marginTop="20dp">
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/font_grey"
-            android:text="用户"/>
+            android:text="@string/re_t3"
+            android:textColor="@color/font_black"
+            android:textSize="20sp" />
         <!--跳转注册页面-->
         <TextView
             android:id="@+id/jc_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/re_t4"
             android:textColor="@color/font_white"
-            android:text="注册"
-            android:textSize="18dp"/>
+            android:textSize="24sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/re_t5"
             android:textColor="@color/font_grey"
-            android:text="卓越书店账号"/>
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/jc_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/re_t6"
             android:textColor="@color/font_white"
-            android:text="登录"
-            android:textSize="18dp"/>
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -134,6 +138,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/shapex"
-        android:text="随便看看"
+        android:text="@string/re_t7"
         android:textColor="@color/font_white" />
 </LinearLayout>

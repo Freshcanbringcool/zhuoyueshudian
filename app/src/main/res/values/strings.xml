@@ -121,5 +121,12 @@
     <string name="bookcasef">书架</string>
     <string name="classctionf">分类</string>
     <string name="myselff">我的</string>
+    <string name="re_t1">注册或登录后继续</string>
+    <string name="re_t2">快速登录</string>
+    <string name="re_t3">用户</string>
+    <string name="re_t4">注册</string>
+    <string name="re_t5">卓越书店账号</string>
+    <string name="re_t6">登录</string>
+    <string name="re_t7">随便看看</string>
 
 </resources>

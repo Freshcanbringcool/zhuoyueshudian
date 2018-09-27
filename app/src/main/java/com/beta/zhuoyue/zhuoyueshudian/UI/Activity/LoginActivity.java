@@ -3,6 +3,7 @@ package com.beta.zhuoyue.zhuoyueshudian.UI.Activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.Window;
 
 import com.beta.zhuoyue.zhuoyueshudian.R;
 

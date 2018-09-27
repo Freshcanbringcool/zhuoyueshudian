@@ -1,12 +1,6 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="windowActionBar">false</item><!--//取消Actionbar-->
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item><!--//设置全屏-->
-        <item name="android:windowBackground">@drawable/ic_action_nav</item><!--//设置背景-->
-    </style>
+
     <style name="AppThemex" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>

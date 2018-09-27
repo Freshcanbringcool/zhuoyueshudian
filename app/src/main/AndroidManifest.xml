@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemex">
 
-        <activity android:name=".UI.Activity.GuideActivity">
+        <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,12 +19,19 @@
         </activity>
         <activity android:name=".UI.Activity.MainActivity"
         >
-        <!-- <intent-filter>
+ <!--        <intent-filter>
              <action android:name="android.intent.action.MAIN" />
 
              <category android:name="android.intent.category.LAUNCHER" />
          </intent-filter>-->
     </activity>
+
+        <activity android:name=".UI.Activity.GuideOpenActivity"></activity>
+        <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.LoginActivity"></activity>
+        <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.UseragreeActivity"></activity>
+        <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.FirstFragmentActivity"></activity>
+        <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.RegistereActivity"></activity>
+
     </application>
 
 </manifest>

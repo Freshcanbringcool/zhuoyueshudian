@@ -3,9 +3,11 @@ package com.beta.zhuoyue.zhuoyueshudian.UI.Activity;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,8 +26,8 @@ public class FirstFragmentActivity extends Activity implements View.OnClickListe
 	//定义四个Fragment
 	private Fragment firstpageFragment = new FirstFragment();			//首页
 	private Fragment clasactionFragment = new ClasActionFragment();		//书架
-	private Fragment bookcasefragment = new BookCaseFragment();				//分类
-	private Fragment Myselffragment = new MyselfFragment();				//我的
+	private Fragment bookcaseFragment = new BookCaseFragment();				//分类
+	private Fragment myselfFragment = new MyselfFragment();				//我的
 
 
 	//定义四个Fragment布局ly=Layout,fr=Frame;
@@ -39,12 +41,14 @@ public class FirstFragmentActivity extends Activity implements View.OnClickListe
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
+		// 去除标题
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.firstpage_fragment_main);
 		//初始化组件
 		initview();
 		//初始化按钮单击组件
-		initaction();
+		initClickEvent();
 		//初始化Fragment
 		initFragment();
 	}
@@ -52,8 +56,154 @@ public class FirstFragmentActivity extends Activity implements View.OnClickListe
 	private void initFragment()
 	{
 		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+		if (!firstpageFragment.isAdded())
+		{
+			fragmentTransaction.add(R.id.content,firstpageFragment);
+			fragmentTransaction.hide(firstpageFragment);
+		}
+		if (!bookcaseFragment.isAdded())
+		{
+			fragmentTransaction.add(R.id.content,bookcaseFragment);
+			fragmentTransaction.hide(firstpageFragment);
+		}
+		if (!clasactionFragment.isAdded())
+		{
+			fragmentTransaction.add(R.id.content,clasactionFragment);
+			fragmentTransaction.hide(clasactionFragment);
+		}
+		if (!myselfFragment.isAdded())
+		{
+			fragmentTransaction.add(R.id.content,myselfFragment);
+			fragmentTransaction.hide(myselfFragment);
+		}
+		hideAllFragment(fragmentTransaction);
+		//默认显示第一个fragement
+		fragmentTransaction.show(firstpageFragment);
+		fragmentTransaction.commit();
+	}
+	//隐藏所有的Fragment
+	private void hideAllFragment(FragmentTransaction fragmentTransaction)
+	{
+		fragmentTransaction.hide(firstpageFragment);
+		fragmentTransaction.hide(bookcaseFragment);
+		fragmentTransaction.hide(clasactionFragment);
+		fragmentTransaction.hide(myselfFragment);
+
+	}
+	private void initview()				//初始化组件
+	{
+		firstpage_fr_ly=(FrameLayout)findViewById(R.id.firstpage_f_Layout);
+		bookcase_fr_ly=(FrameLayout)findViewById(R.id.bookcase_f_tLayout);
+		clasaction_fr_ly=(FrameLayout)findViewById(R.id.clasactionLayout);
+		myself_fr_ly=(FrameLayout)findViewById(R.id.myselfLayout);
+		firstpage_fr_im=(ImageView)findViewById(R.id.firstpage_im);
+		firstpage_fr_tv=(TextView)findViewById(R.id.firstpageTextView);
+		bookcase_fr_im=(ImageView)findViewById(R.id.bookcaseImageView);
+		bookcase_fr_tv=(TextView)findViewById(R.id.bookcaseTextView);
+		clasaction_fr_im=(ImageView)findViewById(R.id.clasactionImageView);
+		clasaction_fr_tv=(TextView)findViewById(R.id.clasactionTextView);
+		myself_fr_im=(ImageView)findViewById(R.id.myselfImageView);
+		myself_fr_tv=(TextView)findViewById(R.id.myselfTextView);
+	}
+	private void initClickEvent()		//初始化按钮单击组件
+	{
+		firstpage_fr_ly.setOnClickListener(this);
+		bookcase_fr_ly.setOnClickListener(this);
+		clasaction_fr_ly.setOnClickListener(this);
+		myself_fr_ly.setOnClickListener(this);
 	}
 	public void onClick(View v) {
+			switch (v.getId())
+			{
+				case R.id.firstpage_f_Layout:
+					//点击首页
+					clickTab(firstpageFragment);
+					break;
+				case R.id.bookcase_f_tLayout:
+						//点击书架
+						clickTab(bookcaseFragment);
+					break;
+				case R.id.clasactionLayout:
+					//点击分类
+					clickTab(clasactionFragment);
+					break;
+				case R.id.myselfLayout:
+					//点击我的
+					clickTab(myselfFragment);
+					break;
+
+					default:
+						break;
+			}
+
+	}
+	private void clickTab(Fragment tabFragment)
+	{
+		//清除上次选中的状态
+		clearSelected();
+
+		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+		//隐藏所有Fragemnt
+		hideAllFragment(fragmentTransaction);
+
+		//显示Fragment
+		fragmentTransaction.show(tabFragment);
+
+		//提交事务
+		fragmentTransaction.commit();
+
+		//改变Tab样式，设置为选中状态
+		changeTabStyle(tabFragment);
+	}
+	//清除上次选中状态
+	private void clearSelected()
+	{
+		if(!firstpageFragment.isHidden())
+		{
+			firstpage_fr_im.setImageResource(R.drawable.ic_first_page1);
+			firstpage_fr_tv.setTextColor(Color.parseColor("#101010"));
+		}
+		if(!bookcaseFragment.isHidden())
+		{
+			bookcase_fr_im.setImageResource(R.drawable.ic_bookcase);
+			bookcase_fr_tv.setTextColor(Color.parseColor("#101010"));
+		}
+		if(!clasactionFragment.isHidden())
+		{
+			clasaction_fr_im.setImageResource(R.drawable.ic_clasaction);
+			clasaction_fr_tv.setTextColor(Color.parseColor("#101010"));
+		}
+		if(!myselfFragment.isHidden())
+		{
+			myself_fr_im.setImageResource(R.drawable.ic_myself);
+			myself_fr_tv.setTextColor(Color.parseColor("#101010"));
+		}
+
+	}
+	//检测Fragment的状态改变样式
+	private void changeTabStyle(Fragment tabFragment)
+	{
+		if(tabFragment instanceof FirstFragment)
+		{
+			firstpage_fr_im.setImageResource(R.drawable.ic_first_page1_c);
+			firstpage_fr_tv.setTextColor(Color.parseColor("#008b8b"));
+		}
+		if(tabFragment instanceof BookCaseFragment)
+		{
+			bookcase_fr_im.setImageResource(R.drawable.ic_bookcase_c);
+			bookcase_fr_tv.setTextColor(Color.parseColor("#008b8b"));
+		}
+		if(tabFragment instanceof ClasActionFragment)
+		{
+			clasaction_fr_im.setImageResource(R.drawable.ic_clasaction_c);
+			clasaction_fr_tv.setTextColor(Color.parseColor("#008b8b"));
+		}
+		if(tabFragment instanceof MyselfFragment)
+		{
+			myself_fr_im.setImageResource(R.drawable.ic_myself_c);
+			myself_fr_tv.setTextColor(Color.parseColor("#008b8b"));
+		}
 
 	}
 }

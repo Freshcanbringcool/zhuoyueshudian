@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/AppTheme"
+    style="@style/AppThemex"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_register">
@@ -115,7 +115,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:background="@drawable/shape"
+                android:background="@drawable/shapebutton"
                 android:text="@string/vescc" />
         </LinearLayout>
 
@@ -134,7 +134,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/shape"
+            android:background="@drawable/shapebutton"
             android:text="注册" />
 
     </LinearLayout>
