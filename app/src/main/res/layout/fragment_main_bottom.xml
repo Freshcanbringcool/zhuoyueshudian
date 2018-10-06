@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+ >
+<LinearLayout
+android:id="@+id/ll_home"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:gravity="center"
+android:orientation="vertical" >
+
+<ImageView
+    android:id="@+id/iv_home"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_first_page1" />
+
+<TextView
+    android:id="@+id/tv_home"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:text="首页"
+    android:textColor="@color/font_black"
+    android:textStyle="bold" />
+</LinearLayout>
+
+<LinearLayout
+android:id="@+id/ll_address"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:gravity="center"
+android:orientation="vertical" >
+
+<ImageView
+    android:id="@+id/iv_address"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_bookcase" />
+
+<TextView
+    android:id="@+id/tv_address"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:text="书架"
+    android:textColor="@color/font_black"
+    android:textStyle="bold" />
+</LinearLayout>
+
+<LinearLayout
+android:id="@+id/ll_friend"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:gravity="center"
+android:orientation="vertical" >
+
+<ImageView
+    android:id="@+id/iv_friend"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_clasaction"  />
+
+<TextView
+    android:id="@+id/tv_friend"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:text="分类"
+    android:textColor="@color/font_black"
+    android:textStyle="bold" />
+</LinearLayout>
+
+<LinearLayout
+android:id="@+id/ll_setting"
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+android:gravity="center"
+android:orientation="vertical" >
+
+<ImageView
+    android:id="@+id/iv_setting"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_myself" />
+
+<TextView
+    android:id="@+id/tv_setting"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="3dp"
+    android:text="我的"
+    android:textColor="@color/font_black"
+    android:textStyle="bold" />
+</LinearLayout>
+</LinearLayout>

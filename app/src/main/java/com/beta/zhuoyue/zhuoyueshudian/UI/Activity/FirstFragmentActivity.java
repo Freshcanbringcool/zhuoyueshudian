@@ -6,10 +6,14 @@ import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.beta.zhuoyue.zhuoyueshudian.R;
@@ -20,190 +24,204 @@ import com.beta.zhuoyue.zhuoyueshudian.UI.Fragment.MyselfFragment;
 
 /**
  * Created by Kevein on 2018/9/25.21:01
+ 2018.10.7下午进行数据修改重新进行命名
  */
 
-public class FirstFragmentActivity extends Activity implements View.OnClickListener{
-	//定义四个Fragment
-	private Fragment firstpageFragment = new FirstFragment();			//首页
-	private Fragment clasactionFragment = new ClasActionFragment();		//书架
-	private Fragment bookcaseFragment = new BookCaseFragment();				//分类
-	private Fragment myselfFragment = new MyselfFragment();				//我的
+public class FirstFragmentActivity extends FragmentActivity implements  View.OnClickListener,ViewPager.OnPageChangeListener{
+	// 底部菜单4个Linearlayout
+	private LinearLayout ll_home;
+	private LinearLayout ll_address;
+	private LinearLayout ll_friend;
+	private LinearLayout ll_setting;
+
+	// 底部菜单4个ImageView
+	private ImageView iv_home;
+	private ImageView iv_address;
+	private ImageView iv_friend;
+	private ImageView iv_setting;
+
+	// 底部菜单4个菜单标题
+	private TextView tv_home;
+	private TextView tv_address;
+	private TextView tv_friend;
+	private TextView tv_setting;
+
+	// 4个Fragment
+	private android.support.v4.app.Fragment homeFragment;
+	private android.support.v4.app.Fragment addressFragment;
+	private android.support.v4.app.Fragment friendFragment;
+	private android.support.v4.app.Fragment settingFragment;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.fragment_main);
 
 
-	//定义四个Fragment布局ly=Layout,fr=Frame;
-	private FrameLayout firstpage_fr_ly,clasaction_fr_ly,bookcase_fr_ly,myself_fr_ly;
+		// 初始化控件
+		initView();
+		// 初始化底部按钮事件
+		initEvent();
+		// 初始化并设置当前Fragment
+		initFragment(0);
 
-	//定义Fragment布局中的图片组件
-	private ImageView firstpage_fr_im,clasaction_fr_im,bookcase_fr_im,myself_fr_im;
-
-	//定义四个Fragment布局中的图片对应文字tv=textview;
-	private TextView firstpage_fr_tv,clasaction_fr_tv,bookcase_fr_tv,myself_fr_tv;
+	}
 
 	@Override
-	protected void onCreate(@Nullable Bundle savedInstanceState) {
-		// 去除标题
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.firstpage_fragment_main);
-		//初始化组件
-		initview();
-		//初始化按钮单击组件
-		initClickEvent();
-		//初始化Fragment
-		initFragment();
-	}
-	//初始化全部Fragment
-	private void initFragment()
-	{
-		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-		if (!firstpageFragment.isAdded())
-		{
-			fragmentTransaction.add(R.id.content,firstpageFragment);
-			fragmentTransaction.hide(firstpageFragment);
-		}
-		if (!bookcaseFragment.isAdded())
-		{
-			fragmentTransaction.add(R.id.content,bookcaseFragment);
-			fragmentTransaction.hide(firstpageFragment);
-		}
-		if (!clasactionFragment.isAdded())
-		{
-			fragmentTransaction.add(R.id.content,clasactionFragment);
-			fragmentTransaction.hide(clasactionFragment);
-		}
-		if (!myselfFragment.isAdded())
-		{
-			fragmentTransaction.add(R.id.content,myselfFragment);
-			fragmentTransaction.hide(myselfFragment);
-		}
-		hideAllFragment(fragmentTransaction);
-		//默认显示第一个fragement
-		fragmentTransaction.show(firstpageFragment);
-		fragmentTransaction.commit();
-	}
-	//隐藏所有的Fragment
-	private void hideAllFragment(FragmentTransaction fragmentTransaction)
-	{
-		fragmentTransaction.hide(firstpageFragment);
-		fragmentTransaction.hide(bookcaseFragment);
-		fragmentTransaction.hide(clasactionFragment);
-		fragmentTransaction.hide(myselfFragment);
+	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
 	}
-	private void initview()				//初始化组件
-	{
-		firstpage_fr_ly=(FrameLayout)findViewById(R.id.firstpage_f_Layout);
-		bookcase_fr_ly=(FrameLayout)findViewById(R.id.bookcase_f_tLayout);
-		clasaction_fr_ly=(FrameLayout)findViewById(R.id.clasactionLayout);
-		myself_fr_ly=(FrameLayout)findViewById(R.id.myselfLayout);
-		firstpage_fr_im=(ImageView)findViewById(R.id.firstpage_im);
-		firstpage_fr_tv=(TextView)findViewById(R.id.firstpageTextView);
-		bookcase_fr_im=(ImageView)findViewById(R.id.bookcaseImageView);
-		bookcase_fr_tv=(TextView)findViewById(R.id.bookcaseTextView);
-		clasaction_fr_im=(ImageView)findViewById(R.id.clasactionImageView);
-		clasaction_fr_tv=(TextView)findViewById(R.id.clasactionTextView);
-		myself_fr_im=(ImageView)findViewById(R.id.myselfImageView);
-		myself_fr_tv=(TextView)findViewById(R.id.myselfTextView);
+
+	@Override
+	public void onPageSelected(int position) {
+
 	}
-	private void initClickEvent()		//初始化按钮单击组件
-	{
-		firstpage_fr_ly.setOnClickListener(this);
-		bookcase_fr_ly.setOnClickListener(this);
-		clasaction_fr_ly.setOnClickListener(this);
-		myself_fr_ly.setOnClickListener(this);
+
+	@Override
+	public void onPageScrollStateChanged(int state) {
+
 	}
+
+	@Override
 	public void onClick(View v) {
-			switch (v.getId())
-			{
-				case R.id.firstpage_f_Layout:
-					//点击首页
-					clickTab(firstpageFragment);
-					break;
-				case R.id.bookcase_f_tLayout:
-						//点击书架
-						clickTab(bookcaseFragment);
-					break;
-				case R.id.clasactionLayout:
-					//点击分类
-					clickTab(clasactionFragment);
-					break;
-				case R.id.myselfLayout:
-					//点击我的
-					clickTab(myselfFragment);
-					break;
+		// 在每次点击后将所有的底部按钮(ImageView,TextView)颜色改为灰色，然后根据点击着色
+		restartBotton();
+		// ImageView和TetxView置为黑色，页面随之跳转
+		switch (v.getId()) {
+			case R.id.ll_home:
+				iv_home.setImageResource(R.drawable.ic_first_page1);
+				tv_home.setTextColor(Color.rgb(0,0,0));
+				initFragment(0);
+				break;
+			case R.id.ll_address:
+				iv_address.setImageResource(R.drawable.ic_bookcase);
+				tv_address.setTextColor(Color.rgb(0,0,0));
+				initFragment(1);
+				break;
+			case R.id.ll_friend:
+				iv_friend.setImageResource(R.drawable.ic_clasaction);
+				tv_friend.setTextColor(Color.rgb(0,0,0));
+				initFragment(2);
+				break;
+			case R.id.ll_setting:
+				iv_setting.setImageResource(R.drawable.ic_myself);
+				tv_setting.setTextColor(Color.rgb(0,0,0));
+				initFragment(3);
+				break;
 
-					default:
-						break;
-			}
+			default:
+				break;
+		}
+	}
+	private void initFragment(int index) {
+		// 由于是引用了V4包下的Fragment，所以这里的管理器要用getSupportFragmentManager获取
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		// 开启事务
+		android.support.v4.app.FragmentTransaction transaction = fragmentManager.beginTransaction();
+		// 隐藏所有Fragment
+		hideFragment(transaction);
+		switch (index) {
+			case 0:
+				if (homeFragment == null) {
+					homeFragment = new FirstFragment();
+					transaction.add(R.id.fl_content, homeFragment);
+				} else {
+					transaction.show(homeFragment);
+				}
+				break;
+			case 1:
+				if (addressFragment == null) {
+					addressFragment = new BookCaseFragment();
+					transaction.add(R.id.fl_content, addressFragment);
+				} else {
+					transaction.show(addressFragment);
+				}
+
+				break;
+			case 2:
+				if (friendFragment == null) {
+					friendFragment = new ClasActionFragment();
+					transaction.add(R.id.fl_content, friendFragment);
+				} else {
+					transaction.show(friendFragment);
+				}
+
+				break;
+			case 3:
+				if (settingFragment == null) {
+					settingFragment = new MyselfFragment();
+					transaction.add(R.id.fl_content, settingFragment);
+				} else {
+					transaction.show(settingFragment);
+				}
+
+				break;
+
+			default:
+				break;
+		}
+
+		// 提交事务
+		transaction.commit();
 
 	}
-	private void clickTab(Fragment tabFragment)
-	{
-		//清除上次选中的状态
-		clearSelected();
 
-		FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-
-		//隐藏所有Fragemnt
-		hideAllFragment(fragmentTransaction);
-
-		//显示Fragment
-		fragmentTransaction.show(tabFragment);
-
-		//提交事务
-		fragmentTransaction.commit();
-
-		//改变Tab样式，设置为选中状态
-		changeTabStyle(tabFragment);
-	}
-	//清除上次选中状态
-	private void clearSelected()
-	{
-		if(!firstpageFragment.isHidden())
-		{
-			firstpage_fr_im.setImageResource(R.drawable.ic_first_page1);
-			firstpage_fr_tv.setTextColor(Color.parseColor("#101010"));
+	//隐藏Fragment
+	private void hideFragment(android.support.v4.app.FragmentTransaction transaction) {
+		if (homeFragment != null) {
+			transaction.hide(homeFragment);
 		}
-		if(!bookcaseFragment.isHidden())
-		{
-			bookcase_fr_im.setImageResource(R.drawable.ic_bookcase);
-			bookcase_fr_tv.setTextColor(Color.parseColor("#101010"));
+		if (addressFragment != null) {
+			transaction.hide(addressFragment);
 		}
-		if(!clasactionFragment.isHidden())
-		{
-			clasaction_fr_im.setImageResource(R.drawable.ic_clasaction);
-			clasaction_fr_tv.setTextColor(Color.parseColor("#101010"));
+		if (friendFragment != null) {
+			transaction.hide(friendFragment);
 		}
-		if(!myselfFragment.isHidden())
-		{
-			myself_fr_im.setImageResource(R.drawable.ic_myself);
-			myself_fr_tv.setTextColor(Color.parseColor("#101010"));
+		if (settingFragment != null) {
+			transaction.hide(settingFragment);
 		}
 
 	}
-	//检测Fragment的状态改变样式
-	private void changeTabStyle(Fragment tabFragment)
-	{
-		if(tabFragment instanceof FirstFragment)
-		{
-			firstpage_fr_im.setImageResource(R.drawable.ic_first_page1_c);
-			firstpage_fr_tv.setTextColor(Color.parseColor("#008b8b"));
-		}
-		if(tabFragment instanceof BookCaseFragment)
-		{
-			bookcase_fr_im.setImageResource(R.drawable.ic_bookcase_c);
-			bookcase_fr_tv.setTextColor(Color.parseColor("#008b8b"));
-		}
-		if(tabFragment instanceof ClasActionFragment)
-		{
-			clasaction_fr_im.setImageResource(R.drawable.ic_clasaction_c);
-			clasaction_fr_tv.setTextColor(Color.parseColor("#008b8b"));
-		}
-		if(tabFragment instanceof MyselfFragment)
-		{
-			myself_fr_im.setImageResource(R.drawable.ic_myself_c);
-			myself_fr_tv.setTextColor(Color.parseColor("#008b8b"));
-		}
+
+	private void initEvent() {
+		// 设置按钮监听
+		ll_home.setOnClickListener(this);
+		ll_address.setOnClickListener(this);
+		ll_friend.setOnClickListener(this);
+		ll_setting.setOnClickListener(this);
 
 	}
+	private void initView() {
+
+		// 底部菜单4个Linearlayout
+		this.ll_home = (LinearLayout) findViewById(R.id.ll_home);
+		this.ll_address = (LinearLayout) findViewById(R.id.ll_address);
+		this.ll_friend = (LinearLayout) findViewById(R.id.ll_friend);
+		this.ll_setting = (LinearLayout) findViewById(R.id.ll_setting);
+
+		// 底部菜单4个ImageView
+		this.iv_home = (ImageView) findViewById(R.id.iv_home);
+		this.iv_address = (ImageView) findViewById(R.id.iv_address);
+		this.iv_friend = (ImageView) findViewById(R.id.iv_friend);
+		this.iv_setting = (ImageView) findViewById(R.id.iv_setting);
+
+		// 底部菜单4个菜单标题
+		this.tv_home = (TextView) findViewById(R.id.tv_home);
+		this.tv_address = (TextView) findViewById(R.id.tv_address);
+		this.tv_friend = (TextView) findViewById(R.id.tv_friend);
+		this.tv_setting = (TextView) findViewById(R.id.tv_setting);
+
+	}
+	private void restartBotton() {
+		// ImageView置为墨色
+		iv_home.setImageResource(R.drawable.ic_first_page1_c);
+		iv_address.setImageResource(R.drawable.ic_bookcase_c);
+		iv_friend.setImageResource(R.drawable.ic_clasaction_c);
+		iv_setting.setImageResource(R.drawable.ic_myself_c);
+		// TextView置为白色
+		tv_home.setTextColor(Color.rgb(120,144,156));
+		tv_address.setTextColor(Color.rgb(120,144,156));
+		tv_friend.setTextColor(Color.rgb(120,144,156));
+		tv_setting.setTextColor(Color.rgb(120,144,156));
+	}
+
 }

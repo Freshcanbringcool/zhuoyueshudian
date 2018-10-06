@@ -103,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/re_t3"
-            android:textColor="@color/font_black"
+            android:textColor="@color/font_grey"
             android:textSize="20sp" />
         <!--跳转注册页面-->
         <TextView
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:text="@string/re_t4"
             android:textColor="@color/font_white"
-            android:textSize="24sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -127,7 +127,7 @@
             android:layout_height="wrap_content"
             android:text="@string/re_t6"
             android:textColor="@color/font_white"
-            android:textSize="24sp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 

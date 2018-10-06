@@ -337,4 +337,9 @@
     <color name="lan">#2196F3</color>
     <color name="zi">#9C27B0</color>
 
+    <color name="bgcolor">#FFDA44</color>
+    <color name="bgmincolor">#F7C600</color>
+    <color name="font">#27220B</color>
+    <color name="view">#C0C0C0</color>
+
 </resources>
