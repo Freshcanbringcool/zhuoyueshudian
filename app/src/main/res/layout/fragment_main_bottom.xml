@@ -15,7 +15,8 @@ android:orientation="vertical" >
     android:id="@+id/iv_home"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:src="@drawable/ic_first_page1" />
+    android:src="@drawable/ic_first_page1"
+    />
 
 <TextView
     android:id="@+id/tv_home"
@@ -39,7 +40,8 @@ android:orientation="vertical" >
     android:id="@+id/iv_address"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:src="@drawable/ic_bookcase" />
+    android:src="@drawable/ic_bookcase"
+/>
 
 <TextView
     android:id="@+id/tv_address"
@@ -47,7 +49,7 @@ android:orientation="vertical" >
     android:layout_height="wrap_content"
     android:layout_marginTop="3dp"
     android:text="书架"
-    android:textColor="@color/font_black"
+
     android:textStyle="bold" />
 </LinearLayout>
 
@@ -63,7 +65,8 @@ android:orientation="vertical" >
     android:id="@+id/iv_friend"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:src="@drawable/ic_clasaction"  />
+    android:src="@drawable/ic_clasaction"
+  />
 
 <TextView
     android:id="@+id/tv_friend"
@@ -71,7 +74,7 @@ android:orientation="vertical" >
     android:layout_height="wrap_content"
     android:layout_marginTop="3dp"
     android:text="分类"
-    android:textColor="@color/font_black"
+
     android:textStyle="bold" />
 </LinearLayout>
 
@@ -87,7 +90,8 @@ android:orientation="vertical" >
     android:id="@+id/iv_setting"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:src="@drawable/ic_myself" />
+    android:src="@drawable/ic_myself"
+/>
 
 <TextView
     android:id="@+id/tv_setting"
@@ -95,7 +99,7 @@ android:orientation="vertical" >
     android:layout_height="wrap_content"
     android:layout_marginTop="3dp"
     android:text="我的"
-    android:textColor="@color/font_black"
+
     android:textStyle="bold" />
 </LinearLayout>
 </LinearLayout>
