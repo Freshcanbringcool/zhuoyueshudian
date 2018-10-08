@@ -17,19 +17,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.Activity.MainActivity"
-        >
- <!--        <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".UI.Activity.MainActivity">
+            <!--        <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
 
-             <category android:name="android.intent.category.LAUNCHER" />
-         </intent-filter>-->
-    </activity>
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>-->
+        </activity>
 
         <activity android:name=".UI.Activity.GuideOpenActivity"></activity>
         <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.LoginActivity"></activity>
         <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.UseragreeActivity"></activity>
-        <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.FirstFragmentActivity"></activity>
+        <activity
+            android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.FirstFragmentActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+
+        </activity>
         <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.RegistereActivity"></activity>
 
     </application>
