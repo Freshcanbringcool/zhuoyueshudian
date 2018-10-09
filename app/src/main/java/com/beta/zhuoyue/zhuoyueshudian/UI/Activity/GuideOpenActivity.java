@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.beta.zhuoyue.zhuoyueshudian.R;
-import com.beta.zhuoyue.zhuoyueshudian.UI.Fragment.FirstFragment;
 
 /**
  * Created by Kevein on 2018/9/23.15:29
@@ -20,6 +19,7 @@ public class GuideOpenActivity extends Activity {
 	private ImageView entx, enweibo, enwinxin, en_phone;
 	private TextView jc_register, jc_login;
 	private Button jc_random;
+
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,7 +34,7 @@ public class GuideOpenActivity extends Activity {
 		en_phone = (ImageView) findViewById(R.id.en_phone);
 		jc_register = (TextView) findViewById(R.id.jc_register);
 		jc_login = (TextView) findViewById(R.id.jc_login);
-		jc_random=(Button)findViewById(R.id.jc_random);
+		jc_random = (Button) findViewById(R.id.jc_random);
 
 	}
 

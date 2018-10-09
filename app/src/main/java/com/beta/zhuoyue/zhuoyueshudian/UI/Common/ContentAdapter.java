@@ -13,8 +13,8 @@ import java.util.List;
 public class ContentAdapter extends PagerAdapter {
 
 	private List<View> views;
-	public ContentAdapter(List<View> views)
-	{
+
+	public ContentAdapter(List<View> views) {
 		this.views = views;
 	}
 

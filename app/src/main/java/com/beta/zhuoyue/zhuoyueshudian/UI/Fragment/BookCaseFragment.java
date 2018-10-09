@@ -12,7 +12,7 @@ import com.beta.zhuoyue.zhuoyueshudian.R;
  * Created by Kevein on 2018/9/25.21:21
  */
 
-public class BookCaseFragment extends  android.support.v4.app.Fragment{
+public class BookCaseFragment extends android.support.v4.app.Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

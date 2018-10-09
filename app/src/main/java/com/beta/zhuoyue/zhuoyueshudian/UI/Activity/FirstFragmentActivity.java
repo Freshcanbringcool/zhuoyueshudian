@@ -1,17 +1,11 @@
 package com.beta.zhuoyue.zhuoyueshudian.UI.Activity;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.Window;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,10 +18,10 @@ import com.beta.zhuoyue.zhuoyueshudian.UI.Fragment.MyselfFragment;
 
 /**
  * Created by Kevein on 2018/9/25.21:01
- 2018.10.7下午进行数据修改重新进行命名
+ * 2018.10.7下午进行数据修改重新进行命名
  */
 
-public class FirstFragmentActivity extends FragmentActivity implements  View.OnClickListener,ViewPager.OnPageChangeListener{
+public class FirstFragmentActivity extends FragmentActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
 	// 底部菜单4个Linearlayout
 	private LinearLayout ll_home;
 	private LinearLayout ll_address;
@@ -47,10 +41,11 @@ public class FirstFragmentActivity extends FragmentActivity implements  View.OnC
 	private TextView tv_setting;
 
 	// 4个Fragment
-	private android.support.v4.app.Fragment homeFragment;
-	private android.support.v4.app.Fragment addressFragment;
-	private android.support.v4.app.Fragment friendFragment;
-	private android.support.v4.app.Fragment settingFragment;
+	private android.support.v4.app.Fragment bookcaseFragment;
+	private android.support.v4.app.Fragment clasactionFragment;
+	private android.support.v4.app.Fragment firstFragment;
+	private android.support.v4.app.Fragment myselfFragment;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,22 +84,22 @@ public class FirstFragmentActivity extends FragmentActivity implements  View.OnC
 		switch (v.getId()) {
 			case R.id.ll_home:
 				iv_home.setImageResource(R.drawable.ic_first_page1);
-				tv_home.setTextColor(Color.rgb(0,0,0));
+				tv_home.setTextColor(Color.rgb(0, 0, 0));
 				initFragment(0);
 				break;
 			case R.id.ll_address:
 				iv_address.setImageResource(R.drawable.ic_bookcase);
-				tv_address.setTextColor(Color.rgb(0,0,0));
+				tv_address.setTextColor(Color.rgb(0, 0, 0));
 				initFragment(1);
 				break;
 			case R.id.ll_friend:
 				iv_friend.setImageResource(R.drawable.ic_clasaction);
-				tv_friend.setTextColor(Color.rgb(0,0,0));
+				tv_friend.setTextColor(Color.rgb(0, 0, 0));
 				initFragment(2);
 				break;
 			case R.id.ll_setting:
 				iv_setting.setImageResource(R.drawable.ic_myself);
-				tv_setting.setTextColor(Color.rgb(0,0,0));
+				tv_setting.setTextColor(Color.rgb(0, 0, 0));
 				initFragment(3);
 				break;
 
@@ -112,6 +107,7 @@ public class FirstFragmentActivity extends FragmentActivity implements  View.OnC
 				break;
 		}
 	}
+
 	private void initFragment(int index) {
 		// 由于是引用了V4包下的Fragment，所以这里的管理器要用getSupportFragmentManager获取
 		FragmentManager fragmentManager = getSupportFragmentManager();
@@ -121,37 +117,37 @@ public class FirstFragmentActivity extends FragmentActivity implements  View.OnC
 		hideFragment(transaction);
 		switch (index) {
 			case 0:
-				if (homeFragment == null) {
-					homeFragment = new FirstFragment();
-					transaction.add(R.id.fl_content, homeFragment);
+				if (bookcaseFragment == null) {
+					bookcaseFragment = new FirstFragment();
+					transaction.add(R.id.fl_content, bookcaseFragment);
 				} else {
-					transaction.show(homeFragment);
+					transaction.show(bookcaseFragment);
 				}
 				break;
 			case 1:
-				if (addressFragment == null) {
-					addressFragment = new BookCaseFragment();
-					transaction.add(R.id.fl_content, addressFragment);
+				if (clasactionFragment == null) {
+					clasactionFragment = new BookCaseFragment();
+					transaction.add(R.id.fl_content, clasactionFragment);
 				} else {
-					transaction.show(addressFragment);
+					transaction.show(clasactionFragment);
 				}
 
 				break;
 			case 2:
-				if (friendFragment == null) {
-					friendFragment = new ClasActionFragment();
-					transaction.add(R.id.fl_content, friendFragment);
+				if (firstFragment == null) {
+					firstFragment = new ClasActionFragment();
+					transaction.add(R.id.fl_content, firstFragment);
 				} else {
-					transaction.show(friendFragment);
+					transaction.show(firstFragment);
 				}
 
 				break;
 			case 3:
-				if (settingFragment == null) {
-					settingFragment = new MyselfFragment();
-					transaction.add(R.id.fl_content, settingFragment);
+				if (myselfFragment == null) {
+					myselfFragment = new MyselfFragment();
+					transaction.add(R.id.fl_content, myselfFragment);
 				} else {
-					transaction.show(settingFragment);
+					transaction.show(myselfFragment);
 				}
 
 				break;
@@ -167,17 +163,17 @@ public class FirstFragmentActivity extends FragmentActivity implements  View.OnC
 
 	//隐藏Fragment
 	private void hideFragment(android.support.v4.app.FragmentTransaction transaction) {
-		if (homeFragment != null) {
-			transaction.hide(homeFragment);
+		if (bookcaseFragment != null) {
+			transaction.hide(bookcaseFragment);
 		}
-		if (addressFragment != null) {
-			transaction.hide(addressFragment);
+		if (clasactionFragment != null) {
+			transaction.hide(clasactionFragment);
 		}
-		if (friendFragment != null) {
-			transaction.hide(friendFragment);
+		if (firstFragment != null) {
+			transaction.hide(firstFragment);
 		}
-		if (settingFragment != null) {
-			transaction.hide(settingFragment);
+		if (myselfFragment != null) {
+			transaction.hide(myselfFragment);
 		}
 
 	}
@@ -190,6 +186,7 @@ public class FirstFragmentActivity extends FragmentActivity implements  View.OnC
 		ll_setting.setOnClickListener(this);
 
 	}
+
 	private void initView() {
 
 		// 底部菜单4个Linearlayout
@@ -211,6 +208,7 @@ public class FirstFragmentActivity extends FragmentActivity implements  View.OnC
 		this.tv_setting = (TextView) findViewById(R.id.tv_setting);
 
 	}
+
 	private void restartBotton() {
 		// ImageView置为墨色
 		iv_home.setImageResource(R.drawable.ic_first_page1_c);
@@ -218,10 +216,10 @@ public class FirstFragmentActivity extends FragmentActivity implements  View.OnC
 		iv_friend.setImageResource(R.drawable.ic_clasaction_c);
 		iv_setting.setImageResource(R.drawable.ic_myself_c);
 		// TextView置为白色
-		tv_home.setTextColor(Color.rgb(120,144,156));
-		tv_address.setTextColor(Color.rgb(120,144,156));
-		tv_friend.setTextColor(Color.rgb(120,144,156));
-		tv_setting.setTextColor(Color.rgb(120,144,156));
+		tv_home.setTextColor(Color.rgb(120, 144, 156));
+		tv_address.setTextColor(Color.rgb(120, 144, 156));
+		tv_friend.setTextColor(Color.rgb(120, 144, 156));
+		tv_setting.setTextColor(Color.rgb(120, 144, 156));
 	}
 
 }

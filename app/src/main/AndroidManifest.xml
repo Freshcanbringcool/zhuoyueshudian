@@ -34,7 +34,10 @@
 
         </activity>
         <activity android:name="com.beta.zhuoyue.zhuoyueshudian.UI.Activity.RegistereActivity"></activity>
-
+        <activity
+            android:name=".UI.Activity.MyMs_MessageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
     </application>
+
 
 </manifest>
