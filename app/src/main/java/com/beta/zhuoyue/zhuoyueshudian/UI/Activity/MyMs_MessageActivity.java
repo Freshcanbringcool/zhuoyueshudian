@@ -5,6 +5,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.beta.zhuoyue.zhuoyueshudian.R;
 import com.beta.zhuoyue.zhuoyueshudian.UI.Common.MyMs_MessageAdapter;
@@ -29,9 +31,19 @@ public class MyMs_MessageActivity extends AppCompatActivity implements TabLayout
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
+		// 去除标题
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.f_ms_message_main);
+		if (getSupportActionBar() != null){
+
+			getSupportActionBar().hide();
+
+		}
 		init();
+
 	}
 
 	private void init() {
