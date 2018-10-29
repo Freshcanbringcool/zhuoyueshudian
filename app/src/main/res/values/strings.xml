@@ -128,5 +128,7 @@
     <string name="re_t5">卓越书店账号</string>
     <string name="re_t6">登录</string>
     <string name="re_t7">随便看看</string>
-
+    <string name="text">图书列表：</string>
+    <string name="add">添加图书</string>
+    <string name="file_select_title">请选择.txt文件</string>
 </resources>
