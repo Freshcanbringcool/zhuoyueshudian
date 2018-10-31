@@ -6,11 +6,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <LinearLayout
+    <com.beta.zhuoyue.zhuoyueshudian.UI.View.TitlebarView
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/darkcyan">
-    </LinearLayout>
+        android:layout_height="48dp"
+        android:background="@color/bt_color"
+        app:centerTitle="首页"
+        app:leftDrawble="@drawable/ic_scaning"
+        app:rightDrawable="@drawable/ic_share"
+
+        />
     <com.youth.banner.Banner
         android:id="@+id/banner"
         android:layout_width="match_parent"
