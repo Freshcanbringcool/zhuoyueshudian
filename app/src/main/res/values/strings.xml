@@ -131,4 +131,7 @@
     <string name="text">图书列表：</string>
     <string name="add">添加图书</string>
     <string name="file_select_title">请选择.txt文件</string>
+    <string name="create_code">生成二维码</string>
+    <string name="scanner_code">扫描二维码</string>
+    <string name="scanner_result">扫描结果</string>
 </resources>

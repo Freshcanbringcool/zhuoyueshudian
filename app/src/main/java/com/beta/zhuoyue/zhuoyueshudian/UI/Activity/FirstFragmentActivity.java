@@ -40,6 +40,9 @@ import com.beta.zhuoyue.zhuoyueshudian.UI.Fragment.DirectMessageFragment;
 import com.beta.zhuoyue.zhuoyueshudian.UI.Fragment.FirstFragment;
 import com.beta.zhuoyue.zhuoyueshudian.UI.Fragment.MyselfFragment;
 
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
+
 import java.util.ArrayList;
 
 /**
@@ -74,6 +77,7 @@ public class FirstFragmentActivity extends FragmentActivity {
 	private android.support.v4.app.Fragment myselfFragment;
 
 	//实现Tab滑动效果
+	@ViewInject(R.id.vp)
 	private ViewPager mViewPager;
 
 
@@ -97,7 +101,7 @@ public class FirstFragmentActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fragment_main);
 		mContext = this;
-
+		x.view().inject(this);//初始化Xutil3.0注解模块
 		// 初始化控件
 		initView();
 		// 初始化底部按钮事件
@@ -117,7 +121,6 @@ public class FirstFragmentActivity extends FragmentActivity {
 	//初始化页面内容区
 	private void InitViewPager()
 	{
-		mViewPager = (ViewPager) findViewById(R.id.vp);
 		mViewPager.setAdapter(new FirstFragmentPAdapter(mFragmentManager,mFragmentArrayList));
 
 		//让ViewPager缓存4个页面

@@ -1,5 +1,6 @@
 package com.beta.zhuoyue.zhuoyueshudian.UI.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,13 +9,18 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.beta.zhuoyue.zhuoyueshudian.R;
+import com.beta.zhuoyue.zhuoyueshudian.UI.Activity.FirstFragmentActivity;
 import com.beta.zhuoyue.zhuoyueshudian.UI.View.GlideImageLoader;
 import com.beta.zhuoyue.zhuoyueshudian.UI.View.TitlebarView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 
+import org.xutils.x;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import zxing.activity.CaptureActivity;
 
 /**
  * Created by Kevein on 2018/9/25.21:20
@@ -30,10 +36,28 @@ public class FirstFragment extends android.support.v4.app.Fragment {
 		mView = inflater.inflate(R.layout.f_firstpage_main, null);
 		initDate();
 		initView();
-		initTitle();//顶部标题栏的点击事件
+/*因为考虑到null的事件所以标题栏的点击事件就切换到onCreateView中*/
+		TitlebarView titlebarView = (TitlebarView) mView.findViewById(R.id.title);
+		titlebarView.setTitleSize(20);
+		titlebarView.setTitle("首页");
+		titlebarView.setOnViewClick(new TitlebarView.onViewClick() {
+			@Override
+			public void leftClick() {
+				Intent intenti = new Intent(getActivity(), CaptureActivity.class);
+				startActivity(intenti);
+
+
+			}
+
+			@Override
+			public void rightClick() {
+
+				Toast.makeText(getActivity(), "分享", Toast.LENGTH_SHORT).show();
+
+			}
+		});
 
 		return mView;
-
 	}
 
 
@@ -44,7 +68,6 @@ public class FirstFragment extends android.support.v4.app.Fragment {
 		imageUrl.add("http://111.230.204.150/img/examples/lun01.jpg");
 		imageUrl.add("http://111.230.204.150/img/examples/lun02.jpg");
 		imageUrl.add("http://111.230.204.150/img/examples/lun03.jpg");
-
 	}
 
 	private void initView() {
@@ -75,12 +98,17 @@ public class FirstFragment extends android.support.v4.app.Fragment {
 		titlebarView.setOnViewClick(new TitlebarView.onViewClick() {
 			@Override
 			public void leftClick() {
-				Toast.makeText(getActivity(), "左边", Toast.LENGTH_SHORT).show();
+				Intent intenti = new Intent(getActivity(), CaptureActivity.class);
+				startActivity(intenti);
+
+
 			}
 
 			@Override
 			public void rightClick() {
-				Toast.makeText(getActivity(), "右边", Toast.LENGTH_SHORT).show();
+
+				Toast.makeText(getActivity(), "分享", Toast.LENGTH_SHORT).show();
+
 			}
 		});
 	}
